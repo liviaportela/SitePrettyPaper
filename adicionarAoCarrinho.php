@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Verifique se o produto já está no carrinho
-    $sqlVerifica = "SELECT * FROM itens_carrinho WHERE id_produto = $id_produto AND id_usuario = '$id_usuario'";
+    $sqlVerifica = "SELECT * FROM itens_carrinho WHERE id_produto = $id_produto AND id_usuario = '$id_usuario' AND status = 'Aberto'";
     $resultVerifica = $conn->query($sqlVerifica);
 
     if ($resultVerifica->num_rows > 0) {
-        $sqlUpdate = "UPDATE itens_carrinho SET quantidade = quantidade + $quantidade WHERE id_produto = $id_produto AND id_usuario = '$id_usuario'";
+        $sqlUpdate = "UPDATE itens_carrinho SET quantidade = quantidade + $quantidade WHERE id_produto = $id_produto AND id_usuario = '$id_usuario' AND status = 'Aberto'";
         $conn->query($sqlUpdate);
         echo 'Quantidade do produto atualizada no carrinho.';
     } else {
