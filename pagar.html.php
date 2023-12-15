@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Carrinho</title>
+	<title>Pagamento</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -234,12 +234,15 @@
 											<input class="size-111 bor8 stext-102 cl2 p-lr-20" type="text" placeholder="CVV" name="cvv" required>
 										</div>
 									</div>
-									<span class="mtext-110 cl2" id="resultado">
-										Total: R$<?= $totalGeral ?>
+									<span class="mtext-110 cl2" id="total">
+										
 									</span>
 										<button type="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 m-t-25 trans-04 pointer" id="btnRealizarPagamento" onclick="processPayment()">Realizar Pagamento</button>
 								</div>
 								<div id="boletoForm" class="payment-form">
+									<span class="mtext-110 cl2 total">
+										
+									</span>
 									<button type="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 m-t-25 trans-04 pointer" id="btnRealizarPagamento" onclick="processPayment()">Realizar Pagamento</button>
 								</div>
 								<div id="pixForm" class="payment-form">
@@ -247,8 +250,8 @@
 										<img src="https://devtools.com.br/img/pix/logo-pix-png-930x616.png" style="width: 40%; max-width: 100%; height: auto;">
 									</div>
 									<div id="pix-qrcode" class="m-b-35 m-t-5" style="display: flex; justify-content: center; align-items: center;"></div>
-									<span class="mtext-110 cl2" id="resultado">
-										Total: R$<?= $totalGeral ?>
+									<span class="mtext-110 cl2" id="Total">
+										
 									</span>
 									<button type="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 m-t-25 trans-04 pointer" id="btnRealizarPagamento" onclick="processPayment()">Realizar Pagamento</button>
 								</div>
@@ -273,13 +276,13 @@
 						<?php endforeach; ?>
 									<div class="flex-w flex-t p-t-27 p-b-33">
 										<div class="size-220">
-											<span class="mtext-110 cl2" id="resultado">
+											<span class="mtext-110 cl2 resultado">
 												Frete:
 											</span><br>
 											<span class="mtext-110 cl2">
 												Subtotal: R$<?= $totalGeral ?>
 											</span><br>
-											<span class="mtext-110 cl2" id="result">
+											<span class="mtext-110 cl2 Total">
 												Valor total: R$
 											</span>
 										</div>
@@ -420,9 +423,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			let valorFrete = urlParams.get('frete');
 
 			// Obtém a referência da span com o ID 'resultado'
-			const spanResultado = document.getElementById('resultado');
-
-			
+			let spanResultado = document.querySelector('.resultado');
+		    let spanResultadoTotal = document.querySelector('.total');
+			let spanResultadoTotal2 = document.getElementById('total');
+			let spanResultadoTotal3 = document.getElementById('Total');
+            let spanResultadoTotal4 = document.querySelector('.Total');
 
 			// Verifica se o valor do frete é válido e atualiza a span
 			if (valorFrete !== null) {
@@ -431,7 +436,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 				// Atualiza o conteúdo da span com o valor do frete
 				spanResultado.innerHTML = `Frete: R$${valorFrete.toFixed(2)}`;
-				console.log('FRETE:' + valorFrete)
+				spanResultadoTotal.innerHTML = `Valor total: R$${(parseFloat(<?php echo $totalGeral; ?>) + parseFloat(valorFrete.toFixed(2))).toFixed(2)}`;
+			    spanResultadoTotal2.innerHTML = `Valor total: R$${(parseFloat(<?php echo $totalGeral; ?>) + parseFloat(valorFrete.toFixed(2))).toFixed(2)}`;
+			    spanResultadoTotal3.innerHTML = `Valor total: R$${(parseFloat(<?php echo $totalGeral; ?>) + parseFloat(valorFrete.toFixed(2))).toFixed(2)}`;
+			    spanResultadoTotal4.innerHTML = `Valor total: R$${(parseFloat(<?php echo $totalGeral; ?>) + parseFloat(valorFrete.toFixed(2))).toFixed(2)}`;
+				console.log('FRETE:' + valorFrete);
 			} else {
 				console.error('O parâmetro de frete não foi fornecido na URL.');
 			}
