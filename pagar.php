@@ -15,14 +15,14 @@ if (isset($_SESSION['usuario_logado']) && $_SESSION['usuario_logado'] === true) 
 
         $sqlItensCarrinho = "SELECT itens_carrinho.*, produtos.nome_produto, produtos.imagem1, produtos.preco
         FROM itens_carrinho
-        JOIN produtos ON itens_carrinho.id_produto = produtos.id_produto WHERE id_usuario = {$_SESSION['id_usuario']}";
+        JOIN produtos ON itens_carrinho.id_produto = produtos.id_produto WHERE id_usuario = {$_SESSION['id_usuario']} AND status = 'Aberto'";
         $resultItensCarrinho = $conn->query($sqlItensCarrinho);
         $produtosCarrinho = array();
         while ($row = $resultItensCarrinho->fetch_assoc()) {
             $produtosCarrinho[] = $row;
         }
 
-        $sqlTotal = "SELECT COUNT(*) as total FROM itens_carrinho WHERE id_usuario = {$_SESSION['id_usuario']}";
+        $sqlTotal = "SELECT COUNT(*) as total FROM itens_carrinho WHERE id_usuario = {$_SESSION['id_usuario']} AND status = 'Aberto'";
         $resultTotal = $conn->query($sqlTotal);
         if ($resultTotal) {
             $row = $resultTotal->fetch_assoc();
@@ -71,14 +71,14 @@ if (isset($_SESSION['usuario_logado']) && $_SESSION['usuario_logado'] === true) 
 
     $sqlItensCarrinho = "SELECT itens_carrinho.*, produtos.nome_produto, produtos.imagem1, produtos.preco
     FROM itens_carrinho
-    JOIN produtos ON itens_carrinho.id_produto = produtos.id_produto WHERE id_usuario = '{$_SESSION['sessao_temporaria']}'";
+    JOIN produtos ON itens_carrinho.id_produto = produtos.id_produto WHERE id_usuario = '{$_SESSION['sessao_temporaria']}' AND status = 'Aberto'";
     $resultItensCarrinho = $conn->query($sqlItensCarrinho);
     $produtosCarrinho = array();
     while ($row = $resultItensCarrinho->fetch_assoc()) {
         $produtosCarrinho[] = $row;
     }
 
-    $sqlTotal = "SELECT COUNT(*) as total FROM itens_carrinho WHERE id_usuario = '{$_SESSION['sessao_temporaria']}'";
+    $sqlTotal = "SELECT COUNT(*) as total FROM itens_carrinho WHERE id_usuario = '{$_SESSION['sessao_temporaria']}' AND status = 'Aberto'";
     $resultTotal = $conn->query($sqlTotal);
 
     if ($resultTotal) {
