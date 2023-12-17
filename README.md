@@ -14,7 +14,7 @@ O projeto é o website de uma papelaria, ele foi construído com base em um mode
   
 #
 <div align="left"> 
-  <strong>📱 Telas do App:</strong>
+  <strong>📱 Telas do Site:</strong>
 </div>
 </br>
 <div align="left">  
