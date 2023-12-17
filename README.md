@@ -1,8 +1,6 @@
-Esse projeto foi desenvolvido durante o 3°ano do curso técnico de desenvolvimento de sistemas na matéria de PWEB III, com o objetivo de utilizar a maioria das tecnologias aprendidas durante o curso. As tecnologias utilizadas foram: PHP, HTML, JavaScript e CSS.
+Apresento o meu mais recente projeto, desenvolvido como culminância do terceiro ano do curso técnico de Desenvolvimento de sistemas, na disciplina de Programação Web III (PWEB III). Este trabalho visa consolidar e aplicar de forma abrangente as tecnologias adquiridas ao longo do curso, destacando a proficiência em PHP, HTML, JavaScript e CSS.
 
-O site foi desenvolvido por meio de um modelo pronto do bootstrap.
-
-As principais telas são: Home, Produtos, Carrinho, Perfil e Pagamento.
+O projeto foi construído com base em um modelo predefinido do Bootstrap, incorporando as melhores práticas de design responsivo e proporcionando uma experiência de usuário fluida. As principais áreas do site incluem as telas de Home, Produtos, Carrinho, Perfil e Pagamento.
 
 ![image](https://github.com/liviaportela/SitePrettyPaper/assets/115835353/b869791c-e45c-4c24-9ea8-8ce42ebee1cf)
 ![image](https://github.com/liviaportela/SitePrettyPaper/assets/115835353/de55a76b-e9ca-4cd9-994a-557ed7b96756)
