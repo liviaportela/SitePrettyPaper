@@ -64,7 +64,6 @@ O projeto é o website de uma papelaria, ele foi construído com base em um mode
   <td>CSS</td>
   <td>PHP</td>
   <td>JavaScript</td>
-  <td>Canva</td>
  </tr>
 </table>
 
